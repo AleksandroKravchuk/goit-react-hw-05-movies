@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/AleksandroKravchuk/goit-react-hw-05-movies/static/css/main.7acaea2f.css",
-    "main.js": "/AleksandroKravchuk/goit-react-hw-05-movies/static/js/main.2959eefa.js",
+    "main.css": "/AleksandroKravchuk/goit-react-hw-05-movies/static/css/main.c1381f2c.css",
+    "main.js": "/AleksandroKravchuk/goit-react-hw-05-movies/static/js/main.ad8ff103.js",
     "index.html": "/AleksandroKravchuk/goit-react-hw-05-movies/index.html",
-    "main.7acaea2f.css.map": "/AleksandroKravchuk/goit-react-hw-05-movies/static/css/main.7acaea2f.css.map",
-    "main.2959eefa.js.map": "/AleksandroKravchuk/goit-react-hw-05-movies/static/js/main.2959eefa.js.map"
+    "main.c1381f2c.css.map": "/AleksandroKravchuk/goit-react-hw-05-movies/static/css/main.c1381f2c.css.map",
+    "main.ad8ff103.js.map": "/AleksandroKravchuk/goit-react-hw-05-movies/static/js/main.ad8ff103.js.map"
   },
   "entrypoints": [
-    "static/css/main.7acaea2f.css",
-    "static/js/main.2959eefa.js"
+    "static/css/main.c1381f2c.css",
+    "static/js/main.ad8ff103.js"
   ]
 }
