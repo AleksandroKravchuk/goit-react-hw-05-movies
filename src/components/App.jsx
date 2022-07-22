@@ -5,10 +5,10 @@ import Header from './Header/Header';
 import Form from './pages/Movies/Movies';
 
 export const App = () => {
-  const [searchName, setSearchName] = useState('');
-  const onSubmit = searhValue => {
-    setSearchName(searhValue);
-  };
+  // const [searchName, setSearchName] = useState('');
+  // const onSubmit = searhValue => {
+  //   setSearchName(searhValue);
+  // };
   return (
     <>
       <Header></Header>

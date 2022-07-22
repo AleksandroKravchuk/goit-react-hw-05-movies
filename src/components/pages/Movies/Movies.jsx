@@ -33,7 +33,7 @@ const Form = ({ onSubmit }) => {
       return Notify.warning('Please enter name movie');
     }
     setSubmitName(searcName);
-    onSubmit(searcName);
+    // onSubmit(searcName);
     setSearchName('');
   };
   return (
