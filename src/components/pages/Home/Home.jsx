@@ -27,7 +27,7 @@ const HomePage = () => {
       <HomeList>
         {topMovies.map(({ original_title, original_name, id }) => (
           <HomeMovie key={id}>
-            <MovieLink>
+            <MovieLink to="/about">
               {original_title} {original_name}
             </MovieLink>
           </HomeMovie>
