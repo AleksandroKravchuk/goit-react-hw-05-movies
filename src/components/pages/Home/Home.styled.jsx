@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 export const HomeTitle = styled.h3`
+  margin-top: 0;
   font-size: 30px;
 `;
 export const HomeList = styled.ul`
-  margin-top: 20px;
   background-color: coral;
 `;
 export const HomeMovie = styled.li`

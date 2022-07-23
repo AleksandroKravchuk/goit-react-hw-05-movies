@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const SearchForm = styled.form`
   width: 300px;
-  height: 100px;
   margin-left: 20px;
   margin-top: 5px;
 `;

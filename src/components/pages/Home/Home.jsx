@@ -8,14 +8,14 @@ import {
   HomePageSection,
   MovieLink,
 } from './Home.styled';
-import { fetchImages } from 'API/api';
+import { fetchMovies } from 'API/api';
 
 const HomePage = () => {
   const [topMovies, setTopMovies] = useState([]);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setLoading(true);
-    fetchImages()
+    fetchMovies()
       .then(data => setTopMovies(data.results))
       .catch(error => Notify.failure('Ooooops somthing went wrong'))
       .finally(() => setLoading(false));
@@ -27,7 +27,7 @@ const HomePage = () => {
       <HomeList>
         {topMovies.map(({ original_title, original_name, id }) => (
           <HomeMovie key={id}>
-            <MovieLink to="/about">
+            <MovieLink to={`/movies/${id}`}>
               {original_title} {original_name}
             </MovieLink>
           </HomeMovie>
