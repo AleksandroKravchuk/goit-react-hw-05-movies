@@ -1,8 +1,8 @@
-import { Routes, Route } from 'react-router-dom';
-// import { useState } from 'react';
-import HomePage from './pages/Home/Home';
-import Header from './Header/Header';
-import Form from './pages/Movies/Movies';
+// import { Routes, Route } from 'react-router-dom';
+// // import { useState } from 'react';
+// import HomePage from './pages/Home/Home';
+// import Header from './Header/Header';
+// import Form from './pages/Movies/Movies';
 
 export const App = () => {
   // const [searchName, setSearchName] = useState('');
