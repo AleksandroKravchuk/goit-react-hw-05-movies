@@ -12,11 +12,10 @@ export const App = () => {
   return (
     <>
       <Header></Header>
-
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/movies" element={<Form />} />
-        <Route path="*" element={<h1>Not found</h1>} />
+        <Route path="*" element={<HomePage />} />
       </Routes>
     </>
   );
