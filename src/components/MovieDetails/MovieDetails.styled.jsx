@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const MovieCard = styled.section`
   width: 100%;
   display: flex;
-  justify-content: space-between;
 
   background-color: yellow;
 `;
@@ -24,4 +23,5 @@ export const MovieTextName = styled.span`
 `;
 export const MovieInformSection = styled.div`
   margin-left: 20px;
+  width: 50%;
 `;
