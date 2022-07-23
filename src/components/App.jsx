@@ -10,13 +10,14 @@ export const App = () => {
   //   setSearchName(searhValue);
   // };
   return (
-    <>
-      <Header></Header>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/movies" element={<Form />} />
-        <Route path="*" element={<HomePage />} />
-      </Routes>
-    </>
+    <h1>sCN:n'pscj</h1>
+    // <>
+    //   <Header></Header>
+    //   <Routes>
+    //     <Route path="/" element={<HomePage />} />
+    //     <Route path="/movies" element={<Form />} />
+    //     <Route path="*" element={<HomePage />} />
+    //   </Routes>
+    // </>
   );
 };
