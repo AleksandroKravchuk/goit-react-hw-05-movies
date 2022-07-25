@@ -27,3 +27,4 @@ export const SearchButton = styled.button`
     color: beige;
   }
 `;
+

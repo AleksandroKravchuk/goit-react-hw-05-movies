@@ -4,6 +4,7 @@ import HomePage from './pages/Home/Home';
 import Header from './Header/Header';
 import Form from './pages/Movies/Movies';
 import MovieDetails from './MovieDetails/MovieDetails';
+import Cast from './Cast/Cast';
 
 export const App = () => {
   // const [searchName, setSearchName] = useState('');
@@ -17,7 +18,10 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/movies" exact element={<Form />} />
-        <Route path="/movies/:movieId" element={<MovieDetails />} />
+        <Route path="/movies/:movieId" element={<MovieDetails />}>
+          <Route path="cast" element={<Cast />} />
+          {/* <Route path="/" element={<HomePage />} /> */}
+        </Route>
         <Route path="*" element={<HomePage />} />
       </Routes>
     </>
