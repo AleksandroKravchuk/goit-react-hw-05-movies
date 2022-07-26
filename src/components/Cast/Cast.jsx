@@ -9,6 +9,7 @@ import {
   CastList,
   CastName,
   CastPhoto,
+  // ButtonMore,
 } from './Cast.styled';
 import boy from '../../Photo/boy.jpg';
 
@@ -26,7 +27,6 @@ const Cast = () => {
       .then(({ cast }) => {
         setCast(cast);
       })
-
       .catch(error => Notify.failure('Ooooops somthing went wrong'))
       .finally(() => setLoading(false));
   }, [movieId]);
@@ -38,12 +38,19 @@ const Cast = () => {
 
     return `https://image.tmdb.org/t/p/w500/${poster_path}`;
   }
+  let newCast = cast.slice(0, 21);
+  // const castArray = cast > newCast;
+
+  // function wathedMore() {
+  //   newCast = newCast.push(cast.slice(21, 41));
+  // }
+  // console.log(newCast);
   return (
     <CastSection>
       {loading && <ThreeDots color="#00BFFF" height={60} width={60} />}
-      {cast && (
+      {cast.length !== 0 ? (
         <CastList>
-          {cast.map(item => (
+          {newCast.map(item => (
             <CastItem key={item.id}>
               <CastName>{item.name}</CastName>
 
@@ -51,6 +58,8 @@ const Cast = () => {
             </CastItem>
           ))}
         </CastList>
+      ) : (
+        <CastName>We dont have any cast for this movie</CastName>
       )}
     </CastSection>
   );

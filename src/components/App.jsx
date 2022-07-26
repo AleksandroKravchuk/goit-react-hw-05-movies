@@ -5,6 +5,7 @@ import Header from './Header/Header';
 import Form from './pages/Movies/Movies';
 import MovieDetails from './MovieDetails/MovieDetails';
 import Cast from './Cast/Cast';
+import Reviews from './Reviews/Reviews';
 
 export const App = () => {
   // const [searchName, setSearchName] = useState('');
@@ -20,7 +21,7 @@ export const App = () => {
         <Route path="/movies" exact element={<Form />} />
         <Route path="/movies/:movieId" element={<MovieDetails />}>
           <Route path="cast" element={<Cast />} />
-          {/* <Route path="/" element={<HomePage />} /> */}
+          <Route path="reviews" element={<Reviews />} />
         </Route>
         <Route path="*" element={<HomePage />} />
       </Routes>
