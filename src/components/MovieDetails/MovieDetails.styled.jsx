@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 export const MovieCard = styled.section`
   width: 100%;
@@ -31,8 +31,6 @@ export const AdditionalInformation = styled.div`
   width: 100%;
   margin-left: 20px;
   margin-top: 10px;
-  /* padding-top: 5px;
-  padding-bottom: 5px; */
   border-top: solid 3px grey;
   border-bottom: solid 3px grey;
 `;
@@ -50,4 +48,12 @@ export const AdditionalLink = styled(NavLink)`
   &.active {
     color: orange;
   }
+`;
+export const ButtonBack = styled(Link)`
+  font-size: 14px;
+  margin-left: 20px;
+  text-decoration: none;
+`;
+export const IconBack = styled.span`
+  margin-right: 5px;
 `;

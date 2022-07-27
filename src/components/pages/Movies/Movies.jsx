@@ -3,7 +3,8 @@ import { Notify } from 'notiflix';
 import { ThreeDots } from 'react-loader-spinner';
 import { SearchForm, Input, SearchButton } from './Movies.styled';
 import { fetchSearchMovies } from 'API/api';
-import { HomeList, HomeMovie, MovieLink } from '../Home/Home.styled';
+// import { useSearchParams, useLocation } from 'react-router-dom';
+import { MovieList } from 'components/MovieList/MovieList';
 
 const Form = () => {
   const [searcName, setSearchName] = useState('');
@@ -11,6 +12,11 @@ const Form = () => {
   const [searchMovies, setSearchMovies] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  // const search = useSearchParams();
+  // const location = useLocation();
+
+  // console.log(search);
+  // console.log(location);
   useEffect(() => {
     if (submitName === '') {
       return;
@@ -38,6 +44,7 @@ const Form = () => {
     if (searcName.trim() === '') {
       return Notify.warning('Please enter name movie');
     }
+
     setSubmitName(searcName);
     setSearchName('');
   };
@@ -48,17 +55,7 @@ const Form = () => {
         <SearchButton type="submit">Search</SearchButton>
       </SearchForm>
       {loading && <ThreeDots color="#00BFFF" height={60} width={60} />}
-      {searchMovies && (
-        <HomeList>
-          {searchMovies.map(({ original_title, original_name, id }) => (
-            <HomeMovie key={id}>
-              <MovieLink to={`/movies/${id}`}>
-                {original_title} {original_name}
-              </MovieLink>
-            </HomeMovie>
-          ))}{' '}
-        </HomeList>
-      )}
+      {searchMovies && <MovieList searchMovies={searchMovies} />}
     </>
   );
 };

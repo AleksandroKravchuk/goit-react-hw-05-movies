@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Notify } from 'notiflix';
+import { FcLeft } from 'react-icons/fc';
 import { ThreeDots } from 'react-loader-spinner';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 
 import {
@@ -16,6 +17,8 @@ import {
   AdditionalLink,
   AdditionalList,
   AdditionalItem,
+  ButtonBack,
+  IconBack,
 } from './MovieDetails.styled';
 import { fetchSelectedMovie } from 'API/api';
 
@@ -27,6 +30,8 @@ const MovieDetails = () => {
   const [popularity, setpopularity] = useState('');
   const [loading, setLoading] = useState(false);
   const { movieId } = useParams();
+
+  const location = useLocation();
 
   useEffect(() => {
     if (!movieId) {
@@ -61,6 +66,13 @@ const MovieDetails = () => {
 
   return (
     <>
+      <ButtonBack to={location.state.from}>
+        <IconBack>
+          {' '}
+          <FcLeft />
+        </IconBack>
+        Go back
+      </ButtonBack>
       <MovieCard>
         {loading && <ThreeDots color="#00BFFF" height={60} width={60} />}
 

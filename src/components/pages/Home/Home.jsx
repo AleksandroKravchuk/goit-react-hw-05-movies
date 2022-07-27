@@ -1,14 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Notify } from 'notiflix';
 import { ThreeDots } from 'react-loader-spinner';
-import {
-  HomeTitle,
-  HomeList,
-  HomeMovie,
-  HomePageSection,
-  MovieLink,
-} from './Home.styled';
+import { HomeTitle, HomePageSection } from './Home.styled';
 import { fetchMovies } from 'API/api';
+import { MovieList } from 'components/MovieList/MovieList';
 
 const HomePage = () => {
   const [topMovies, setTopMovies] = useState([]);
@@ -24,15 +19,7 @@ const HomePage = () => {
     <HomePageSection>
       <HomeTitle>Trending today</HomeTitle>
       {loading && <ThreeDots color="#00BFFF" height={60} width={60} />}
-      <HomeList>
-        {topMovies.map(({ original_title, original_name, id }) => (
-          <HomeMovie key={id}>
-            <MovieLink to={`/movies/${id}`}>
-              {original_title} {original_name}
-            </MovieLink>
-          </HomeMovie>
-        ))}
-      </HomeList>
+      <MovieList searchMovies={topMovies} />
     </HomePageSection>
   );
 };
