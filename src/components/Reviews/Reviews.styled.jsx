@@ -12,4 +12,5 @@ export const ReviewsName = styled.p`
 `;
 export const ReviewsText = styled.p`
   font-size: 14px;
+  padding: 10px;
 `;

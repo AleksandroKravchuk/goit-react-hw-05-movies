@@ -1,28 +1,13 @@
-import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { Notify } from 'notiflix';
 import { ThreeDots } from 'react-loader-spinner';
-import { fetchMovieReviews } from 'API/api';
 import { ReviewsSection, ReviewsName, ReviewsText } from './Reviews.styled';
+import { useFetch } from 'hooks/useFethc';
 
 const Reviews = () => {
-  const [reviews, setReviews] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const { movieId } = useParams();
-
-  useEffect(() => {
-    if (!movieId) {
-      return;
-    }
-    setLoading(true);
-    fetchMovieReviews(movieId)
-      .then(({ results }) => {
-        setReviews(results);
-      })
-      .catch(error => Notify.failure('Ooooops somthing went wrong'))
-      .finally(() => setLoading(false));
-  }, [movieId]);
-
+  const { data, loading } = useFetch('reviews');
+  if (!data.results) {
+    return;
+  }
+  const reviews = data.results;
   return (
     <ReviewsSection>
       {loading && <ThreeDots color="#00BFFF" height={60} width={60} />}

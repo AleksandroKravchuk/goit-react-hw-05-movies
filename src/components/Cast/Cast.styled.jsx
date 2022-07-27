@@ -26,15 +26,4 @@ export const CastName = styled.p`
 export const CastPhoto = styled.img`
   width: 100%;
 `;
-export const ButtonMore = styled.button`
-  padding: 5px 10px;
-  background-color: yellow;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 12px;
-  transition: background-color 250ms linear;
-  &:hover {
-    background-color: gray;
-  }
-`;
+

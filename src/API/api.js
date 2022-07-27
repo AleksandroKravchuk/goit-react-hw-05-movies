@@ -16,12 +16,8 @@ export async function fetchSelectedMovie(movie_id){
       return data;     
   };
    
-export async function fetchMovieCast(movie_id) {
-  const { data } = await axios.get(`https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=${API_KEY}&language=en-US`);
+export async function fetchMovieInfo(movie_id, meaning) {
+  const { data } = await axios.get(`https://api.themoviedb.org/3/movie/${movie_id}/${meaning}?api_key=${API_KEY}&language=en-US`);
      return data;     
   };
     
-export async function fetchMovieReviews(movie_id) {
-  const { data } = await axios.get(`https://api.themoviedb.org/3/movie/${movie_id}/reviews?api_key=${API_KEY}&language=en-US&page=1`);
-  return data;     
-  };

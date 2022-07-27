@@ -24,7 +24,8 @@ export const MovieTextName = styled.span`
 `;
 export const MovieInformSection = styled.div`
   margin-left: 20px;
-  width: 50%;
+  padding: 10px;
+  width: 100%;
 `;
 export const AdditionalInformation = styled.div`
   width: 100%;

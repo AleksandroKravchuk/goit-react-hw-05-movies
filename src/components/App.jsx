@@ -14,16 +14,18 @@ export const App = () => {
   // };
   return (
     <>
-      <Header></Header>
+      {/* <Header></Header> */}
 
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/movies" exact element={<Form />} />
-        <Route path="/movies/:movieId" element={<MovieDetails />}>
-          <Route path="cast" element={<Cast />} />
-          <Route path="reviews" element={<Reviews />} />
+        <Route path="/" element={<Header />}>
+          <Route index element={<HomePage />} />
+          <Route path="/movies" element={<Form />} />
+          <Route path="/movies/:movieId" element={<MovieDetails />}>
+            <Route path="cast" element={<Cast />} />
+            <Route path="reviews" element={<Reviews />} />
+          </Route>
+          <Route path="*" element={<HomePage />} />
         </Route>
-        <Route path="*" element={<HomePage />} />
       </Routes>
     </>
   );

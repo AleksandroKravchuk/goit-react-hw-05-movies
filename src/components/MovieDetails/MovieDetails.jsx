@@ -3,8 +3,7 @@ import { Notify } from 'notiflix';
 import { ThreeDots } from 'react-loader-spinner';
 import { useParams } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
-// import { Notify } from 'notiflix';
-// import { ThreeDots } from 'react-loader-spinner';
+
 import {
   MovieCard,
   MovieName,
@@ -65,7 +64,10 @@ const MovieDetails = () => {
       <MovieCard>
         {loading && <ThreeDots color="#00BFFF" height={60} width={60} />}
 
-        <MoviePoster src={posterPath(poster_path)} alt="photo movie"></MoviePoster>
+        <MoviePoster
+          src={posterPath(poster_path)}
+          alt="photo movie"
+        ></MoviePoster>
         <MovieInformSection>
           <MovieName>{title}</MovieName>
           <MovieText>
