@@ -66,13 +66,13 @@ const MovieDetails = () => {
 
   return (
     <>
-      <ButtonBack to={location.state.from}>
+      {/* <ButtonBack to={location.state.from}>
         <IconBack>
           {' '}
           <FcLeft />
         </IconBack>
         Go back
-      </ButtonBack>
+      </ButtonBack> */}
       <MovieCard>
         {loading && <ThreeDots color="#00BFFF" height={60} width={60} />}
 
