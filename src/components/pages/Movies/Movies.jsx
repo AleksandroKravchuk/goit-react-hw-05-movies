@@ -3,7 +3,7 @@ import { Notify } from 'notiflix';
 import { ThreeDots } from 'react-loader-spinner';
 import { SearchForm, Input, SearchButton } from './Movies.styled';
 import { fetchSearchMovies } from 'API/api';
-// import { useSearchParams, useLocation } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { MovieList } from 'components/MovieList/MovieList';
 
 const Form = () => {
@@ -11,19 +11,18 @@ const Form = () => {
   const [submitName, setSubmitName] = useState('');
   const [searchMovies, setSearchMovies] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  // const search = useSearchParams();
-  // const location = useLocation();
+  const name = searchParams.get('query');
+  const search = submitName || name;
 
-  // console.log(search);
-  // console.log(location);
   useEffect(() => {
-    if (submitName === '') {
+    if (search === '' || search === null) {
       return;
     }
     setLoading(true);
-    fetchSearchMovies(submitName)
-      .then(({ results, total_pages, total_results }) => {
+    fetchSearchMovies(search)
+      .then(({ results, total_results }) => {
         if (total_results === 0) {
           Notify.failure(
             'Sorry, there are no movies matching your search query. Please try again.'
@@ -33,7 +32,7 @@ const Form = () => {
       })
       .catch(error => Notify.failure('Ooooops somthing went wrong'))
       .finally(() => setLoading(false));
-  }, [submitName]);
+  }, [search]);
 
   const addSearchName = evt => {
     const { value } = evt.target;
@@ -44,7 +43,7 @@ const Form = () => {
     if (searcName.trim() === '') {
       return Notify.warning('Please enter name movie');
     }
-
+    setSearchParams(`query=${searcName}`);
     setSubmitName(searcName);
     setSearchName('');
   };

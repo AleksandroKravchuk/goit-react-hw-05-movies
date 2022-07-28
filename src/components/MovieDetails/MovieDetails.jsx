@@ -32,6 +32,7 @@ const MovieDetails = () => {
   const { movieId } = useParams();
 
   const location = useLocation();
+  const backLinkHref = location.state?.from ?? '/';
 
   useEffect(() => {
     if (!movieId) {
@@ -66,13 +67,13 @@ const MovieDetails = () => {
 
   return (
     <>
-      {/* <ButtonBack to={location.state.from}>
+      <ButtonBack to={backLinkHref}>
         <IconBack>
           {' '}
           <FcLeft />
         </IconBack>
         Go back
-      </ButtonBack> */}
+      </ButtonBack>
       <MovieCard>
         {loading && <ThreeDots color="#00BFFF" height={60} width={60} />}
 
@@ -95,10 +96,14 @@ const MovieDetails = () => {
         <AdditionalName>Additional information</AdditionalName>
         <AdditionalList>
           <AdditionalItem>
-            <AdditionalLink to={'cast'}>Cast</AdditionalLink>
+            <AdditionalLink to={'cast'} state={{ from: backLinkHref }}>
+              Cast
+            </AdditionalLink>
           </AdditionalItem>
           <AdditionalItem>
-            <AdditionalLink to={'reviews'}>Reviews</AdditionalLink>
+            <AdditionalLink to={'reviews'} state={{ from: backLinkHref }}>
+              Reviews
+            </AdditionalLink>
           </AdditionalItem>
         </AdditionalList>
         <Outlet />
