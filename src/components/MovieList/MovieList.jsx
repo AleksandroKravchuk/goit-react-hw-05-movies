@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { HomeList, HomeMovie, MovieLink } from './MovieList.styled';
 import { useLocation } from 'react-router-dom';
 
@@ -15,4 +16,7 @@ export const MovieList = ({ searchMovies }) => {
       ))}{' '}
     </HomeList>
   );
+};
+MovieList.propTypes = {
+  searchMovies: PropTypes.arrayOf(PropTypes.object),
 };
