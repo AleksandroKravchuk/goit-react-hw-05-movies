@@ -13,10 +13,13 @@ export const App = () => {
   return (
     <Suspense fallback={<ThreeDots color="#00BFFF" height={60} width={60} />}>
       <Routes>
-        <Route path="" element={<Header />}>
+        <Route path="/goit-react-hw-05-movies" element={<Header />}>
           <Route index element={<HomePage />} />
-          <Route path="/movies" element={<Form />} />
-          <Route path="/movies/:movieId" element={<MovieDetails />}>
+          <Route path="/goit-react-hw-05-movies/movies" element={<Form />} />
+          <Route
+            path="/goit-react-hw-05-movies/movies/:movieId"
+            element={<MovieDetails />}
+          >
             <Route path="cast" element={<Cast />} />
             <Route path="reviews" element={<Reviews />} />
           </Route>
