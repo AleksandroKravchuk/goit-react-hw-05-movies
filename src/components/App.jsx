@@ -3,8 +3,8 @@ import { lazy, Suspense } from 'react';
 import { ThreeDots } from 'react-loader-spinner';
 
 const Header = lazy(() => import('./Header/Header'));
-const HomePage = lazy(() => import('./pages/Home/Home'));
-const Form = lazy(() => import('./pages/Movies/Movies'));
+const HomePage = lazy(() => import('../pages/Home/Home'));
+const Form = lazy(() => import('../pages/Movies/Movies'));
 const MovieDetails = lazy(() => import('./MovieDetails/MovieDetails'));
 const Cast = lazy(() => import('./Cast/Cast'));
 const Reviews = lazy(() => import('./Reviews/Reviews'));

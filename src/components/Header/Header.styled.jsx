@@ -14,6 +14,6 @@ export const StyledLink = styled(NavLink)`
   margin-left: 20px;
   text-decoration: none;
   &.active {
-    color: orange;
+    border-bottom: solid 3px orange;
   }
 `;

@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Notify } from 'notiflix';
 import {  fetchMovieInfo } from 'API/api';
 
-export const useFetch = (meaning) => {
+export const useFetchInfo = (meaning) => {
   const [data, setdata] = useState([]);
   const [loading, setLoading] = useState(false);
   const { movieId } = useParams();

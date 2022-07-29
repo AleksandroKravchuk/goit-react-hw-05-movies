@@ -1,5 +1,5 @@
 import { ThreeDots } from 'react-loader-spinner';
-import { useFetch } from 'hooks/useFethc';
+import { useFetchInfo } from 'hooks/useFetch';
 import {
   CastSection,
   CastItem,
@@ -10,7 +10,7 @@ import {
 import boy from '../../Photo/boy.jpg';
 
 const Cast = () => {
-  const { data, loading } = useFetch('credits');
+  const { data, loading } = useFetchInfo('credits');
   const cast = data.cast;
   if (!cast) {
     return;

@@ -1,9 +1,9 @@
 import { ThreeDots } from 'react-loader-spinner';
 import { ReviewsSection, ReviewsName, ReviewsText } from './Reviews.styled';
-import { useFetch } from 'hooks/useFethc';
+import { useFetchInfo } from 'hooks/useFetch';
 
 const Reviews = () => {
-  const { data, loading } = useFetch('reviews');
+  const { data, loading } = useFetchInfo('reviews');
   if (!data.results) {
     return;
   }
