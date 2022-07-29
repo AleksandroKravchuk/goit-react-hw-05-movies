@@ -13,7 +13,7 @@ export const App = () => {
   return (
     <Suspense fallback={<ThreeDots color="#00BFFF" height={60} width={60} />}>
       <Routes>
-        <Route path="/" element={<Header />}>
+        <Route path="" element={<Header />}>
           <Route index element={<HomePage />} />
           <Route path="/movies" element={<Form />} />
           <Route path="/movies/:movieId" element={<MovieDetails />}>
