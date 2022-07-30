@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Notify } from 'notiflix';
 import { FcLeft } from 'react-icons/fc';
 import { ThreeDots } from 'react-loader-spinner';
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams, useLocation, useNavigate } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 
 import {
@@ -33,7 +33,7 @@ const MovieDetails = () => {
 
   const location = useLocation();
   const backLinkHref = location.state?.from ?? '/';
-
+  const novigate = useNavigate();
   useEffect(() => {
     if (!movieId) {
       return;
@@ -51,10 +51,11 @@ const MovieDetails = () => {
       .catch(error => {
         if (error.response.status === 404) {
           Notify.failure('No movie on this request');
+          novigate('/', { replace: true });
         }
       })
       .finally(() => setLoading(false));
-  }, [movieId]);
+  }, [movieId, novigate]);
 
   const ganreList = genres.map(ganre => ganre.name).join(', ');
 
