@@ -17,7 +17,7 @@ const Form = () => {
   const search = submitName || name;
 
   useEffect(() => {
-    if (search === '' || search === null) {
+    if (!search) {
       return;
     }
     setLoading(true);

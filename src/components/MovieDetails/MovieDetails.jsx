@@ -48,7 +48,11 @@ const MovieDetails = () => {
         setpopularity(popularity);
       })
 
-      .catch(error => Notify.failure('Ooooops somthing went wrong'))
+      .catch(error => {
+        if (error.response.status === 404) {
+          Notify.failure('No movie on this request');
+        }
+      })
       .finally(() => setLoading(false));
   }, [movieId]);
 
@@ -67,47 +71,51 @@ const MovieDetails = () => {
 
   return (
     <>
-      <ButtonBack to={backLinkHref}>
-        <IconBack>
-          {' '}
-          <FcLeft />
-        </IconBack>
-        Go back
-      </ButtonBack>
-      <MovieCard>
-        {loading && <ThreeDots color="#00BFFF" height={60} width={60} />}
+      {title && (
+        <>
+          <ButtonBack to={backLinkHref}>
+            <IconBack>
+              {' '}
+              <FcLeft />
+            </IconBack>
+            Go back
+          </ButtonBack>
+          <MovieCard>
+            {loading && <ThreeDots color="#00BFFF" height={60} width={60} />}
 
-        <MoviePoster
-          src={posterPath(poster_path)}
-          alt="photo movie"
-        ></MoviePoster>
-        <MovieInformSection>
-          <MovieName>{title}</MovieName>
-          <MovieText>
-            <MovieTextName>Popularity:</MovieTextName> {popularity}
-          </MovieText>
-          <MovieTextName>Overview</MovieTextName>{' '}
-          <MovieText> {overview}</MovieText>
-          <MovieTextName>Genres</MovieTextName>
-          <MovieText>{ganreList}</MovieText>
-        </MovieInformSection>
-      </MovieCard>
-      <AdditionalInformation>
-        <AdditionalName>Additional information</AdditionalName>
-        <AdditionalList>
-          <AdditionalItem>
-            <AdditionalLink to={'cast'} state={{ from: backLinkHref }}>
-              Cast
-            </AdditionalLink>
-          </AdditionalItem>
-          <AdditionalItem>
-            <AdditionalLink to={'reviews'} state={{ from: backLinkHref }}>
-              Reviews
-            </AdditionalLink>
-          </AdditionalItem>
-        </AdditionalList>
-        <Outlet />
-      </AdditionalInformation>
+            <MoviePoster
+              src={posterPath(poster_path)}
+              alt="photo movie"
+            ></MoviePoster>
+            <MovieInformSection>
+              <MovieName>{title}</MovieName>
+              <MovieText>
+                <MovieTextName>Popularity:</MovieTextName> {popularity}
+              </MovieText>
+              <MovieTextName>Overview</MovieTextName>{' '}
+              <MovieText> {overview}</MovieText>
+              <MovieTextName>Genres</MovieTextName>
+              <MovieText>{ganreList}</MovieText>
+            </MovieInformSection>
+          </MovieCard>
+          <AdditionalInformation>
+            <AdditionalName>Additional information</AdditionalName>
+            <AdditionalList>
+              <AdditionalItem>
+                <AdditionalLink to={'cast'} state={{ from: backLinkHref }}>
+                  Cast
+                </AdditionalLink>
+              </AdditionalItem>
+              <AdditionalItem>
+                <AdditionalLink to={'reviews'} state={{ from: backLinkHref }}>
+                  Reviews
+                </AdditionalLink>
+              </AdditionalItem>
+            </AdditionalList>
+            <Outlet />
+          </AdditionalInformation>
+        </>
+      )}
     </>
   );
 };
